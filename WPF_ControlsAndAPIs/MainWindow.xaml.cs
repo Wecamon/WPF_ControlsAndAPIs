@@ -24,5 +24,28 @@ namespace WPF_ControlsAndAPIs
         {
             InitializeComponent();
         }
+
+        private void RadioButtonClicked(object sender, RoutedEventArgs e)
+        {
+            switch ((sender as RadioButton)?.Content.ToString())
+            {
+                case "Ink Mode":
+                    inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
+                    break;
+                case "Erase Mode":
+                    inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
+                    break;
+                case "Select Mode":
+                    inkCanvas.EditingMode = InkCanvasEditingMode.Select;
+                    break;
+            }
+
+        }
+
+        private void ColorChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+
+        }
     }
 }

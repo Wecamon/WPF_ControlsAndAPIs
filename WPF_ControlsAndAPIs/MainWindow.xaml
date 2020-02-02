@@ -7,6 +7,40 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <TabControl Name="TabCtrl"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch">
+            <TabItem Header="InkAPI">
+                <StackPanel Background="#FFE5E5E5">
+                    <ToolBar Name="InkToolBar" Height="60">
+                        <Border Margin="0 2 0 2.4" Width="280" VerticalAlignment="Center">
+                            <WrapPanel>
+                                <RadioButton x:Name="inkRadio" Margin="5 10" Content="Ink Mode" Click="RadioButtonClicked"/>
+                                <RadioButton x:Name="clearRadio" Margin="5 10" Content="Erase Mode" Click="RadioButtonClicked"/>
+                                <RadioButton x:Name="selectRadio" Margin="5 10" Content="Select Mode" Click="RadioButtonClicked"/>
+                            </WrapPanel>
+                        </Border>
+                        <Separator/>
+                        <ComboBox x:Name="comboBoxColors" Width="170" Margin="10 0 0 0" SelectionChanged="ColorChanged">
+                            <ComboBoxItem Content="Red"/>
+                            <ComboBoxItem Content="Green"/>
+                            <ComboBoxItem Content="Blue"/>
+                        </ComboBox>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" x:Name="btnSave" Margin="10 10" Width="70" Content="Save Data"/>
+                            <Button Grid.Column="1" x:Name="btnLoad" Margin="10 10" Width="70" Content="Load Data"/>
+                            <Button Grid.Column="2" x:Name="btnClear" Margin="10 10" Width="70" Content="Clear"/>
+                        </Grid>
+                    </ToolBar>
+                    <InkCanvas x:Name="inkCanvas" Background="Azure"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Item"></TabItem>
+        </TabControl>
     </Grid>
 </Window>
